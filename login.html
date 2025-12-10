@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Sign Up - Gourmet Haven</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="validation.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <h1 class="logo">🍽️ LA-parviz</h1>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="reservations.html">Reservations</a></li>
+                    <li><a href="login.html" class="active">Login/Sign Up</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section class="auth-section">
+        <div class="auth-container">
+            <div class="tabs">
+                <button class="tab-button active" onclick="switchTab('login')">Login</button>
+                <button class="tab-button" onclick="switchTab('signup')">Sign Up</button>
+            </div>
+
+            <!-- Login Form -->
+            <div id="login" class="tab-content active">
+                <h2>Login to Your Account</h2>
+                <form id="loginForm" onsubmit="validateLogin(event)">
+                    <div class="form-group">
+                        <label for="loginEmail">Email *</label>
+                        <input type="email" id="loginEmail" name="loginEmail" placeholder="Enter your email" required>
+                        <span class="error-message" id="loginEmailError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="loginPassword">Password *</label>
+                        <input type="password" id="loginPassword" name="loginPassword" placeholder="Enter your password" required>
+                        <span class="error-message" id="loginPasswordError"></span>
+                    </div>
+
+                    <div class="form-group checkbox">
+                        <input type="checkbox" id="rememberMe" name="rememberMe">
+                        <label for="rememberMe">Remember me</label>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Login</button>
+                    <p class="form-footer">Forgot your password? <a href="#">Reset here</a></p>
+                </form>
+                <div id="loginSuccess" class="success-message" style="display: none;">
+                    ✓ Login successful! Welcome back!
+                </div>
+            </div>
+
+            <!-- Sign Up Form -->
+            <div id="signup" class="tab-content">
+                <h2>Create New Account</h2>
+                <form id="signupForm" onsubmit="validateSignup(event)">
+                    <div class="form-group">
+                        <label for="signupFirstName">First Name *</label>
+                        <input type="text" id="signupFirstName" name="signupFirstName" placeholder="Enter your first name" required>
+                        <span class="error-message" id="firstNameError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signupLastName">Last Name *</label>
+                        <input type="text" id="signupLastName" name="signupLastName" placeholder="Enter your last name" required>
+                        <span class="error-message" id="lastNameError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signupEmail">Email *</label>
+                        <input type="email" id="signupEmail" name="signupEmail" placeholder="Enter your email" required>
+                        <span class="error-message" id="signupEmailError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signupPhone">Phone Number *</label>
+                        <input type="tel" id="signupPhone" name="signupPhone" placeholder="Enter your phone number" required>
+                        <span class="error-message" id="signupPhoneError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signupPassword">Password *</label>
+                        <input type="password" id="signupPassword" name="signupPassword" placeholder="Create a strong password (min 6 characters)" required>
+                        <span class="error-message" id="signupPasswordError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password *</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
+                        <span class="error-message" id="confirmPasswordError"></span>
+                    </div>
+
+                    <div class="form-group checkbox">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <label for="terms">I agree to the <a href="#">Terms & Conditions</a> *</label>
+                        <span class="error-message" id="termsError"></span>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Create Account</button>
+                </form>
+                <div id="signupSuccess" class="success-message" style="display: none;">
+                    ✓ Account created successfully! You can now login.
+                </div>
+            </div>
+        </div>
+
+        <div class="reviews-section">
+            <h2>Customer Reviews</h2>
+            <div class="reviews-container">
+                <div class="review-card">
+                    <div class="review-header">
+                        <h4>Sarah Mitchell</h4>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                    <p>"Absolutely magnificent dining experience! The attention to detail in every dish was extraordinary. The service was impeccable and the ambiance was perfect for our anniversary dinner. We'll definitely be back!"</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <h4>James Robertson</h4>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                    <p>"As a food critic, I've dined at many fine restaurants, but Gourmet Haven stands out. The chef's creativity combined with fresh ingredients creates an unforgettable culinary journey. Highly recommended!"</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <h4>Emily Chen</h4>
+                        <div class="stars">★★★★☆</div>
+                    </div>
+                    <p>"Fantastic food and wonderful service. The menu offerings are diverse and innovative. Only minor note: the wait time was a bit longer than expected, but the meal was worth it!"</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <h4>David Thompson</h4>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                    <p>"Simply the best fine dining experience in the city. Every course was a masterpiece. Our server was knowledgeable, friendly, and attentive. The wine pairing suggestions were spot on!"</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <h4>Lisa Anderson</h4>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                    <p>"Perfect for special occasions! We celebrated our daughter's graduation here and the entire evening was flawless. The chef personally came out to chat with us. Truly special treatment!"</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <h4>Michael Brown</h4>
+                        <div class="stars">★★★★☆</div>
+                    </div>
+                    <p>"Excellent culinary skills and beautiful plating. The flavors are balanced and refined. Great experience overall. Would recommend for romantic dinners and important business meals."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 LA-parviz. All rights reserved.</p>
+            <p>📞 +1 (555) 123-4567 | 📧 info@LA-parviz.com | 📍 123 Fine Dining Street, Culinary City</p>
+        </div>
+    </footer>
+</body>
+</html>
